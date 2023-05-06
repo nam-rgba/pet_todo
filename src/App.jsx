@@ -1,11 +1,12 @@
+import Header from './components/header/Header.jsx'
+
 
 function App() {
-
   return (
     <>
-      <p>now</p>
+      <Header></Header>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
