@@ -38,7 +38,18 @@
     border-radius: 5px;
     background: radial-gradient(523px at 7.1% 19.3%, rgb(147, 15, 255) 2%, rgb(5, 49, 255) 100.7%);
     color: #f2f2f2;
-    margin-left: 1rem
-    
+    margin-left: 1rem;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.submit_btn i{
+    margin-left: 0.5rem;
+}
+
+.submit_btn:hover{
+    background: transparent;
+    color: rgb(147, 15, 255);
+    border: 1px solid rgb(147, 15, 255);
 }
 

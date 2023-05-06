@@ -1,0 +1,33 @@
+.task{
+
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.created{
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgb(255, 119, 15);
+}
+
+.completed{
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgb(15, 255, 83);
+
+}
+
+
+.created span, .completed span{
+    border-radius: 1rem;
+    padding: 0.1rem 1rem;
+    margin-left: 1rem;
+    background-color: #282727;
+    color: #ffffff;
+}
