@@ -1,12 +1,12 @@
 import Header from './components/header/Header.jsx';
-import Task from './components/task/Task.jsx';
+import List from './components/list/List.jsx';
 
 
 function App() {
   return (
     <>
       <Header></Header>
-      <Task></Task>
+      <List></List>
     </>
   );
 }
