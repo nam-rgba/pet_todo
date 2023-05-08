@@ -1,24 +1,37 @@
 import style from "./list.module.css";
 import Task from "../task/Task";
+import PropTypes from "prop-types";
 
-export default function List() {
+export default function List({ tasks, onCompleted }) {
+  console.log(tasks);
   return (
     <>
       <section className={style.task}>
         <header className={style.header}>
           <div className={style.created}>
             Created tasks
-            <span>5</span>
+            <span>{tasks.length}</span>
           </div>
           <div className={style.completed}>
             Completed
-            <span>1 of 5</span>
+            <span>
+              {" "}
+              {tasks.filter((task) => task.isCompleted).length} of{" "}
+              {tasks.length}
+            </span>
           </div>
         </header>
         <div className={style.list}>
-          <Task/>
+          {tasks.map((task) => (
+            <Task key={task.id} task={task} onCompleted={onCompleted} />
+          ))}
         </div>
       </section>
     </>
   );
 }
+
+List.propTypes = {
+  tasks: PropTypes.array,
+  onCompleted: PropTypes.func,
+};

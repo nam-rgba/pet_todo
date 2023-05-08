@@ -1,21 +1,33 @@
 import style from "./task.module.css";
-import { AiTwotoneDelete, AiFillCheckCircle } from 'react-icons/ai';
+import { AiTwotoneDelete, AiFillCheckCircle } from "react-icons/ai";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
-export default function Task() {
+export default function Task({ task, onCompleted }) {
+  const [isCompleted, setIsCompleted] = useState(task.isCompleted);
+
   return (
     <div className={style.task}>
-      <button className={style.checkContainer}>
-        <AiFillCheckCircle size={20}/>
+      <button
+        className={style.checkContainer}
+        onClick={() => {
+          setIsCompleted(!isCompleted);
+          onCompleted(task.id);
+        }}
+      >
+        {isCompleted ? <AiFillCheckCircle size={20} /> : <div />}
       </button>
-      <p className={style.title}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
-        consectetur laudantium iusto vel rem voluptatum dolorem officia ad
-        quisquam nulla modi commodi provident harum, placeat suscipit! Fugiat
-        cupiditate atque voluptatibus.
+      <p className={isCompleted ? style.textCompleted : style.title}>
+        {task.title}
       </p>
       <button className={style.delete}>
-        <AiTwotoneDelete size={20}/>
+        <AiTwotoneDelete size={20} />
       </button>
     </div>
   );
 }
+
+Task.propTypes = {
+  task: PropTypes.object,
+  onCompleted: PropTypes.func,
+};
