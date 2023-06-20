@@ -16,6 +16,15 @@ function App() {
     ]);
   };
 
+  const deleteTask = (taskId) => {
+    const newTasks = tasks.filter((task) => {
+      if (taskId !== task.id) {
+        return task;
+      }
+    });
+    setTasks(newTasks);
+  };
+
   function toogleTaskCompletedById(taskId) {
     const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
@@ -32,7 +41,11 @@ function App() {
   return (
     <>
       <Header onAddTask={addTask}></Header>
-      <List tasks={tasks} onCompleted={toogleTaskCompletedById}></List>
+      <List
+        tasks={tasks}
+        onCompleted={toogleTaskCompletedById}
+        onDelete={deleteTask}
+      ></List>
     </>
   );
 }

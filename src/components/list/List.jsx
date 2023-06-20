@@ -2,7 +2,7 @@ import style from "./list.module.css";
 import Task from "../task/Task";
 import PropTypes from "prop-types";
 
-export default function List({ tasks, onCompleted }) {
+export default function List({ tasks, onCompleted, onDelete }) {
   console.log(tasks);
   return (
     <>
@@ -23,7 +23,12 @@ export default function List({ tasks, onCompleted }) {
         </header>
         <div className={style.list}>
           {tasks.map((task) => (
-            <Task key={task.id} task={task} onCompleted={onCompleted} />
+            <Task
+              key={task.id}
+              task={task}
+              onCompleted={onCompleted}
+              onDelete={onDelete}
+            />
           ))}
         </div>
       </section>
@@ -34,4 +39,5 @@ export default function List({ tasks, onCompleted }) {
 List.propTypes = {
   tasks: PropTypes.array,
   onCompleted: PropTypes.func,
+  onDelete: PropTypes.func,
 };

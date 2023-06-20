@@ -3,7 +3,7 @@ import { AiTwotoneDelete, AiFillCheckCircle } from "react-icons/ai";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export default function Task({ task, onCompleted }) {
+export default function Task({ task, onCompleted, onDelete }) {
   const [isCompleted, setIsCompleted] = useState(task.isCompleted);
 
   return (
@@ -20,7 +20,12 @@ export default function Task({ task, onCompleted }) {
       <p className={isCompleted ? style.textCompleted : style.title}>
         {task.title}
       </p>
-      <button className={style.delete}>
+      <button
+        className={style.delete}
+        onClick={() => {
+          onDelete(task.id);
+        }}
+      >
         <AiTwotoneDelete size={20} />
       </button>
     </div>
@@ -30,4 +35,5 @@ export default function Task({ task, onCompleted }) {
 Task.propTypes = {
   task: PropTypes.object,
   onCompleted: PropTypes.func,
+  onDelete: PropTypes.func,
 };
