@@ -1,9 +1,11 @@
-import { useState } from "react";
 import Header from "./components/header/Header.jsx";
 import List from "./components/list/List.jsx";
+import { useLocalStorage } from "./hooks/useLocalStorage.js";
+import { useDetectDate } from "./hooks/useDetectDate.js";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useLocalStorage("tasks", []);
+  const detectDate = useDetectDate();
 
   const addTask = (taskTitle) => {
     setTasks([
@@ -12,8 +14,10 @@ function App() {
         id: crypto.randomUUID(),
         title: taskTitle,
         isCompleted: false,
+        deadline: detectDate(taskTitle),
       },
     ]);
+    console.log(tasks);
   };
 
   const deleteTask = (taskId) => {

@@ -20,6 +20,7 @@ export default function Task({ task, onCompleted, onDelete }) {
       <p className={isCompleted ? style.textCompleted : style.title}>
         {task.title}
       </p>
+      {task.deadline ? <p className={style.deadline}>{task.deadline}</p> : null}
       <button
         className={style.delete}
         onClick={() => {
