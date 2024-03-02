@@ -2,6 +2,7 @@ import Header from "./components/header/Header.jsx";
 import List from "./components/list/List.jsx";
 import { useLocalStorage } from "./hooks/useLocalStorage.js";
 import { useDetectDate } from "./hooks/useDetectDate.js";
+import { formatDate } from "./utils/index.js";
 
 function App() {
   const [tasks, setTasks] = useLocalStorage("tasks", []);
@@ -15,6 +16,7 @@ function App() {
         title: taskTitle,
         isCompleted: false,
         deadline: detectDate(taskTitle),
+        created: formatDate(new Date()),
       },
     ]);
     console.log(tasks);

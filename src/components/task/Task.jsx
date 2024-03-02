@@ -15,12 +15,24 @@ export default function Task({ task, onCompleted, onDelete }) {
           onCompleted(task.id);
         }}
       >
-        {isCompleted ? <AiFillCheckCircle size={20} /> : <div />}
+        {isCompleted ? (
+          <AiFillCheckCircle size={20} />
+        ) : (
+          <div className={style.check} />
+        )}
       </button>
-      <p className={isCompleted ? style.textCompleted : style.title}>
-        {task.title}
-      </p>
-      {task.deadline ? <p className={style.deadline}>{task.deadline}</p> : null}
+      <div>
+        <p className={isCompleted ? style.textCompleted : style.title}>
+          {task.title}
+        </p>
+        {task.deadline.length > 0 && !isCompleted ? (
+          <p className={style.deadline}>
+            {" "}
+            Deadline: {task.deadline[0]} {task.deadline[1]}
+          </p>
+        ) : null}
+      </div>
+
       <button
         className={style.delete}
         onClick={() => {

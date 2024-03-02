@@ -17,14 +17,13 @@ function checkSign(word) {
   const VWordSign = [
     "vào",
     "lúc",
-    "vào lúc",
     "ngày",
     "hạn chót",
     "at",
     "on",
     "at on",
-    "deadline at",
-    "due to",
+    "deadline",
+    "due",
   ];
   return VWordSign.includes(word);
 }

@@ -1,8 +1,4 @@
-.task{
-    
-}
-
-.header{
+.header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,13 +6,13 @@
     padding: 1rem;
 }
 
-.created{
+.created {
     font-size: 0.8rem;
     font-weight: 700;
     color: rgb(255, 119, 15);
 }
 
-.completed{
+.completed {
     font-size: 0.8rem;
     font-weight: 700;
     color: rgb(15, 255, 83);
@@ -24,7 +20,8 @@
 }
 
 
-.created span, .completed span{
+.created span,
+.completed span {
     border-radius: 1rem;
     padding: 0.1rem 1rem;
     margin-left: 1rem;
@@ -32,7 +29,7 @@
     color: #ffffff;
 }
 
-.list{
+.list {
     max-width: 60%;
     padding: auto;
     margin: auto;
