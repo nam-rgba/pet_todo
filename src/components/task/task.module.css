@@ -1,7 +1,7 @@
 .task {
     display: flex;
     flex-direction: row;
-    align-items: start;
+    align-items: center;
     justify-content: space-between;
     background-color: #2f2f30;
     padding: 1rem;
@@ -10,12 +10,33 @@
     cursor: pointer;
     transition: all 0.1s ease-in-out;
     font-weight: 600;
+    height: 4rem;
 }
 
 
 
 .task:hover {
     background-color: #1d1d1d;
+}
+
+.createAt {
+    opacity: 0;
+
+    width: 30%;
+    background-color: #808080;
+    border-radius: 999px;
+    border: none;
+    backdrop-filter: blur(5px);
+    color: aliceblue;
+    margin-right: 1rem;
+    font-size: 14px;
+    text-align: center;
+    padding: 0.4rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.task:hover .createAt {
+    opacity: 1;
 
 }
 
@@ -51,7 +72,7 @@
 
 .title {
     white-space: pre-wrap;
-    width: 70%;
+    width: 60%;
     font-size: 90%;
     float: left;
 }
@@ -79,5 +100,5 @@ button {
     font-size: 0.8rem;
     color: red;
     font-weight: 700;
-
+    width: 12%;
 }

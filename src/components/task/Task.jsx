@@ -21,10 +21,13 @@ export default function Task({ task, onCompleted, onDelete }) {
           <div className={style.check} />
         )}
       </button>
-      <div>
+      <div className={style.content}>
         <p className={isCompleted ? style.textCompleted : style.title}>
           {task.title}
         </p>
+
+        <div className={style.createAt}>Was created: {task.created}</div>
+
         {task.deadline.length > 0 && !isCompleted ? (
           <p className={style.deadline}>
             {" "}
